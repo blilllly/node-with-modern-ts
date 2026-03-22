@@ -1,9 +1,9 @@
 # Node with modern ts (nodenext)
 
-1. Instalar TypeScript y tipos de Node, como dependencia de desarrollo
+1. Instalar TypeScript y las demas dependencias
 
 ```
-npm i -D typescript @types/node
+npm i -D typescript @types/node tsx nodemon rimraf
 ```
 
 2. Inicializar el archivo de configuración de TypeScript ( Se puede configurar al gusto)
@@ -12,13 +12,7 @@ npm i -D typescript @types/node
 npx tsc --init --outDir dist/ --rootDir src
 ```
 
-3. Configurar Nodemon y tsx
-
-```
-npm install -D tsx nodemon
-```
-
-4. Crear archivo de configuración de Nodemon - **nodemon.json**
+3. Crear archivo de configuración de Nodemon - **nodemon.json**
 
 ```
 {
@@ -29,21 +23,10 @@ npm install -D tsx nodemon
 }
 ```
 
-5. Crear script para correr en desarrollo en el **package.json**
+4. Crear scripts en el package.json para construir e iniciar en producción
 
 ```
   "dev": "nodemon"
-```
-
-6. Instalar rimraf (Herramienta que funciona similar al rm -f) eliminar directorio
-
-```
-npm install -D rimraf
-```
-
-7. Crear scripts en el package.json para construir e iniciar en producción
-
-```
-   "build": "rimraf ./dist && tsc",
-   "start": "npm run build && node dist/app.js"
+  "build": "rimraf ./dist && tsc",
+  "start": "npm run build && node dist/app.js"
 ```
